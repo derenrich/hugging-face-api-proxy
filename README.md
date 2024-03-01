@@ -19,8 +19,8 @@ docker run -e PORT=8000 -e HF_TOKEN=... -p 8000:8000 --rm --entrypoint web hf_ap
 To deploy on toolforge run
 
 ```bash
-become mytool
+become hf-proxy
 toolforge envvars create HF_TOKEN
-toolforge build start https://github...
+toolforge build start https://github.com/derenrich/hugging-face-api-proxy
 toolforge webservice --backend=kubernetes --mount=none buildservice start
 ```

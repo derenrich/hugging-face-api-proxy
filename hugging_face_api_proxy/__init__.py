@@ -18,7 +18,7 @@ app = FastAPI()
 
 
 @app.post("/proxy/{file_path:path}")
-async def proxy(file_path: str, request: Request) -> dict:
+async def proxy(file_path: str, request: Request):
     async with httpx.AsyncClient() as client:
         body = await request.json()
         response = await client.post(f"{HF_BASE_URL}/{file_path}", headers={"Authorization": f"Bearer {HF_TOKEN}"}, json=body, timeout=300)
@@ -28,5 +28,4 @@ async def proxy(file_path: str, request: Request) -> dict:
             return response.json()
         except httpx.HTTPError as e:
             # reraise exception as fastapi exception
-
             raise HTTPException(status_code=response.status_code, detail=response.json())

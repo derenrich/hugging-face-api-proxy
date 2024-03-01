@@ -1,0 +1,1 @@
+web: uvicorn --host 0.0.0.0 --workers 4 hugging_face_api_proxy:app

@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "hugging-face-api-proxy"
+version = "0.1.0"
+description = ""
+authors = ["Daniel Erenrich <daniel@erenrich.net>"]
+readme = "README.md"
+packages = [{ include = "hugging_face_api_proxy" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.109.2"
+uvicorn = { extras = ["standard"], version = "^0.27.1" }
+httpx = "^0.27.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
